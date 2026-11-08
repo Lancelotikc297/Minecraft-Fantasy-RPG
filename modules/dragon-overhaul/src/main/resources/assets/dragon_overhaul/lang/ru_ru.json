@@ -1,0 +1,15 @@
+{
+  "mod.dragon_overhaul.name": "Капитальная переработка драконов",
+  "species.dragon.fire": "Огненный дракон",
+  "species.dragon.ice": "Ледяной дракон",
+  "species.dragon.lightning": "Громовой дракон",
+  "command.dragon.stay": "Оставаться на месте",
+  "command.dragon.follow": "Следовать за хозяином",
+  "command.dragon.guard": "Охранять территорию",
+  "command.dragon.wander": "Свободный полет",
+  "status.dragon.tamed": "Приручен",
+  "status.dragon.wild": "Дикий",
+  "status.dragon.protect_builds": "Защита построек: Активна",
+  "entity.amphithere.name": "Амфиптерий",
+  "gui.dragon.status_title": "Панель статуса дракона"
+}

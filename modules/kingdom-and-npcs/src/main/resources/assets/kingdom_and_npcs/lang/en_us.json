@@ -1,0 +1,18 @@
+{
+  "mod.kingdom_and_npcs.name": "Kingdom and NPCs",
+  "npc.profession.blacksmith": "Blacksmith",
+  "npc.profession.alchemist": "Alchemist",
+  "npc.profession.guard": "Guard",
+  "npc.profession.builder": "Builder",
+  "npc.profession.merchant": "Merchant",
+  "faction.paladins": "Order of the Holy Light",
+  "faction.mages": "Magical Conclave",
+  "faction.rangers": "Rangers of the Wild Woods",
+  "faction.merchants": "Trade Union of Kingdoms",
+  "quest.starter_slayer.title": "Perimeter Cleansing",
+  "quest.dragon_investigation.title": "Traces of Beasts",
+  "quest.magic_runes.title": "Secret of Ancient Scrolls",
+  "settlement.townhall": "Town Hall",
+  "settlement.barracks": "Guard Barracks",
+  "settlement.forge": "Blacksmith Forge"
+}

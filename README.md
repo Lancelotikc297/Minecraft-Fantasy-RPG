@@ -1,80 +1,46 @@
-# Minecraft Fantasy RPG Sandbox
+# Minecraft Fantasy RPG (1.20.1 Forge)
 
-Модульная ролевая песочница на базе Minecraft 1.20.1 Forge, расширяющая исследование мира, RPG-прогрессию, магию, существ и драконов, систему поселений и экономику. Полная локализация на русский язык (`ru_RU`).
-
----
-
-## 🧭 Назначение и ключевые принципы
-
-1. **Модульность:** Проект строится как комплекс независимых, конфигурируемых и тестируемых модулей вокруг ядра `FantasyRPG Core`.
-2. **Язык интерфейса:** 100% русскоязычный интерфейс игрока (книга знаний, подсказки, диалоги, настройки, квесты).
-3. **Безопасность построек игрока:** Дома и поселения защищены от разрушения драконами по умолчанию (`protect_player_builds = true`).
-4. **Сбалансированная магия:** Школы огня, льда, молнии, тьмы; запрещены школы телепортации и иллюзий.
-5. **Единая экономика:** Универсальные монеты (медь, серебро, золото) взамен «изумрудов за палки».
+Готовая к установке модульная ролевая песочница на базе Minecraft 1.20.1 Forge: драконы, классы, магия, живые поселения, универсальная монетная экономика и 100% русская локализация.
 
 ---
 
-## 📁 Структура проекта
+## ⚡ Быстрая установка в 1 шаг
 
-```text
-├── docs/                                # Архитектура, лицензии, глоссарий, журнал решений
-│   ├── ARCHITECTURE.md                  # Технический дизайн, обоснование выбора MC 1.20.1 Forge
-│   ├── PHASE_B_RESEARCH.md              # Сравнительный анализ версий MC и модлоадеров
-│   ├── TASK_TRACKER.md                  # Мастер-трекер 29 модулей и фаз разработки
-│   ├── MOD_INVENTORY_AND_LICENSES.md   # Аудит лицензий (LGPLv3, MIT, проприетарные)
-│   ├── DECISION_LOG_AND_RISKS.md        # Журнал решений (ADR) и реестр рисков
-│   └── LOCALIZATION_GLOSSARY_RU.md      # Стандарты терминологии и переводов
-├── modules/                             # Модули системы
-│   ├── rpg-core/                        # Центральные схемы конфигураций и метаданные
-│   │   └── config_schema.json           # Схема централизованных настроек
-│   └── fantasyrpg-core/                 # Скомпилированный рабочий мод FantasyRPG Core (Forge 1.20.1)
-│       ├── build.gradle                 # Конфигурация сборки Gradle
-│       ├── src/main/java/               # Исходный код ядра мода (классы, статы, команды)
-│       ├── src/main/resources/          # mods.toml и русскоязычные lang-файлы ru_ru.json
-│       └── build/libs/                  # Готовый скомпилированный JAR
-├── config/                              # Конфигурационные файлы
-│   └── default_settings.json            # Базовые проверенные настройки
-├── tools/                               # Утилиты разработки и CI
-│   ├── audit_localization.py            # Автоматический аудит строк на русский язык
-│   └── validate_config.py               # Проверка конфигураций на соответствие правилам
-├── tests/                               # Набор автоматизированных тестов Python
-│   ├── test_audit_localization.py       # Тесты инструмента локализации
-│   └── test_validate_config.py          # Тесты валидатора конфигураций
-├── launcher/                            # Исходный код и ресурсы русскоязычного лаунчера
-└── Minecraft_Fantasy_RPG_AI_Task_List.md# Мастер-спецификация проекта
-```
+1. Скачайте готовый архив **`dist/Minecraft_Fantasy_RPG_1.20.1.zip`**.
+2. Распакуйте его содержимое прямо в папку `.minecraft`.
+3. Запустите Minecraft с профилем **Forge 1.20.1** (версия 47.2.20+) и наслаждайтесь игрой!
 
 ---
 
-## 🛠️ Сборка мода FantasyRPG Core и запуск тестов
+## 📦 Скомпилированные модули в комплекте
 
-### 1. Сборка JAR-файла мода:
-```bash
-cd modules/fantasyrpg-core
-gradle clean test jar
-```
-Собранный JAR создается в: `modules/fantasyrpg-core/build/libs/fantasyrpg-core-1.0.0.jar`.
+1. **`fantasyrpg-core-1.0.0.jar`:**
+   - 6 классов, уровни, 18 навыков, 16 заклинаний (Огонь, Лед, Молния, Тьма, Свет).
+   - Выделенный несгораемый кошелек (Coin Pouch) с авто-конвертацией 100:1.
+   - Внутриигровой конфигурационный центр (`/rpg config`) и профили графики (Laptop, Balanced, Cinematic).
+2. **`dragon-overhaul-1.0.0.jar`:**
+   - **Защита построек игрока по умолчанию (`protect_player_builds = true`)!**
+   - 3 вида драконов, 5 стадий роста, амфиптерии (1.6x скорость полета).
+3. **`kingdom-and-npcs-1.0.0.jar`:**
+   - Социум жителей (5 профессий), 4 фракции с репутацией, квесты и стройка поселения.
+4. **`world-and-survival-1.0.0.jar`:**
+   - Рубка дерева целиком со списанием прочности топора.
+   - 4 сезона года без удушающих штрафов.
+   - Модульные рюкзаки ультра-вместимости до 16384 предметов на слот.
+   - Многофазные боссы и интеграция путевых точек карты.
 
-### 2. Запуск Java тестов мода:
-```bash
-cd modules/fantasyrpg-core
-gradle test
-```
+---
 
-### 3. Запуск системных тестов Python:
+## 🛠️ Сборка из исходников и тестирование
+
 ```bash
+# Сборка всех 4 модулей:
+cd modules/fantasyrpg-core && gradle clean test jar
+cd ../dragon-overhaul && gradle clean test jar
+cd ../kingdom-and-npcs && gradle clean test jar
+cd ../world-and-survival && gradle clean test jar
+
+# Проверка тестов и локализации:
 python3 -m unittest discover tests
-```
-
-### 4. Проверка локализации мода:
-```bash
-python3 tools/audit_localization.py \
-  --ru modules/fantasyrpg-core/src/main/resources/assets/fantasyrpg_core/lang/ru_ru.json \
-  --en modules/fantasyrpg-core/src/main/resources/assets/fantasyrpg_core/lang/en_us.json \
-  --glossary docs/LOCALIZATION_GLOSSARY_RU.md
-```
-
-### 5. Проверка единых настроек:
-```bash
 python3 tools/validate_config.py --config config/default_settings.json --schema modules/rpg-core/config_schema.json
 ```
