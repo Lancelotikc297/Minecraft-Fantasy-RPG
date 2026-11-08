@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mods]]
+modId="fantasyrpg_core"
+version="1.0.0"
+displayName="FantasyRPG Core"
+description='''
+Центральный модуль RPG-песочницы Minecraft: ролевые атрибуты, классы, уровни, русская локализация и защита построек игрока.
+'''
+authors="FantasyRPG Team"
+
+[[dependencies.fantasyrpg_core]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47.2.0,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.fantasyrpg_core]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"

@@ -1,0 +1,22 @@
+{
+  "mod.fantasyrpg_core.name": "Ролевое ядро фэнтези",
+  "command.rpg.info.header": "=== Характеристики персонажа: %s ===",
+  "command.rpg.info.class": "Класс: %s",
+  "command.rpg.info.level": "Уровень: %d (Опыт: %d/%d)",
+  "command.rpg.info.mana": "Мана: %d/%d",
+  "command.rpg.info.attributes": "Атрибуты -> Сила: %d | Ловкость: %d | Интеллект: %d | Выносливость: %d",
+  "command.rpg.setclass.success": "Класс персонажа изменен на: %s",
+  "command.rpg.addxp.success": "Добавлено %d очков опыта! Текущий уровень: %d",
+  "command.rpg.levelup": "Поздравляем! Вы достигли уровня %d!",
+  "class.rpg.warrior": "Воин",
+  "class.rpg.paladin": "Паладин",
+  "class.rpg.mage": "Маг",
+  "class.rpg.necromancer": "Некромант",
+  "class.rpg.assassin": "Ассасин",
+  "class.rpg.archer": "Лучник",
+  "error.rpg.invalid_class": "Неизвестный класс! Доступные классы: воин, паладин, маг, некромант, ассасин, лучник",
+  "error.rpg.player_not_found": "Игрок не найден!",
+  "gui.rpg.guidebook.title": "Книга знаний о мире",
+  "gui.rpg.config.protect_builds": "Защита построек от драконов: Включена",
+  "gui.rpg.config.performance": "Профиль производительности: %s"
+}
