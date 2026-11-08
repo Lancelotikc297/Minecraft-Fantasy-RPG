@@ -1,0 +1,18 @@
+{
+  "mod.kingdom_and_npcs.name": "Королевство и жители",
+  "npc.profession.blacksmith": "Кузнец",
+  "npc.profession.alchemist": "Алхимик",
+  "npc.profession.guard": "Стражник",
+  "npc.profession.builder": "Строитель",
+  "npc.profession.merchant": "Купец",
+  "faction.paladins": "Орден Священного Света",
+  "faction.mages": "Магический Конклав",
+  "faction.rangers": "Стражи Диких Лесов",
+  "faction.merchants": "Торговый Союз Королевств",
+  "quest.starter_slayer.title": "Очистка окрестностей",
+  "quest.dragon_investigation.title": "Следы чудовищ",
+  "quest.magic_runes.title": "Тайна древних свитков",
+  "settlement.townhall": "Ратуша",
+  "settlement.barracks": "Казармы стражи",
+  "settlement.forge": "Кузница"
+}
