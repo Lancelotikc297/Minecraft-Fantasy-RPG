@@ -35,8 +35,8 @@
 | M-04 | Combat & Animations | `Tested` | FantasyRPG Core (`CombatEngine`) | Расчет урона по формуле силы, шанс крита от ловкости, снижение броней и блок |
 | M-05 | Equipment & Rarity | `Tested` | FantasyRPG Core (`ItemRarity`) | 6 градаций качества (Обычный -> Артефактный) с множителями статов |
 | M-06 | Creatures, Wildlife & AI | `Research` | Alex's Mobs (селективно) | Дикая природа, лимиты сущностей, умный ненавязчивый AI |
-| M-07 | Dragon Overhaul (Ice and Fire) | `In progress` | Ice and Fire Fork/Patch | Огонь, лед, молния; защита баз по умолчанию (`protectPlayerBuilds = true`) |
-| M-08 | Amphithere Expansion | `In progress` | Ice and Fire Submodule | Приручение, маневренный полет, легкая сбруя |
+| M-07 | Dragon Overhaul (Ice and Fire) | `Tested` | Dragon Overhaul (`modules/dragon-overhaul`) | Огонь, лед, молния; защита баз по умолчанию (`protect_player_builds = true`), стадии 1-5, команды |
+| M-08 | Amphithere Expansion | `Tested` | Dragon Overhaul (`AmphithereData`) | Приручение, маневренный полет (1.6x), седло, статус |
 | M-09 | NPC, Villager & Social | `Research` | MCA Reborn Integration | Диалоги на русском, профессии, семьи (без эротики) |
 | M-10 | Settlement Generation | `Research` | ChoiceTheorem's Overhauled | Разнообразные города и деревни под биомы |
 | M-11 | Player Kingdom Management | `Research` | MineColonies (RPG-адаптация) | Постройка города из чертежей, жители-строители |
@@ -66,9 +66,9 @@
 - **Phase A (Исследования и Архитектура):** `Tested` — Выбор платформы MC 1.20.1 Forge, аудит лицензий, глоссарий, дорожная карта.
 - **Phase B (Стабильный технический фундамент):** `Tested` — Мод `FantasyRPG Core`, схемы конфигураций, аудит локализации, юнит-тесты.
 - **Phase C (Геймплейное ролевое ядро):** `Tested` — Ролевые классы, навыки, магия 5 разрешенных школ, боевой движок, монетный двор, книга знаний.
-- **Phase D (Мир и приключения):** `Planned`
+- **Phase D (Мир и приключения):** `In progress`
 - **Phase E (NPC, экономика и королевство):** `Planned`
-- **Phase F (Переработка драконов и амфиптерий):** `Planned`
+- **Phase F (Переработка драконов и амфиптерий):** `Tested` — Реализован `DragonProtectionEngine`, защита баз по умолчанию, 3 вида драконов, 5 стадий роста, амфиптерии, русский статус.
 - **Phase G (Аудио, графика и профили):** `Planned`
 - **Phase H (Лаунчер и релизная сборка):** `Planned`
 - **Phase I (Экосистема расширений):** `Planned`

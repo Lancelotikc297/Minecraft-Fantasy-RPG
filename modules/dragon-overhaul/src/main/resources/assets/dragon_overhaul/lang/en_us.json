@@ -1,0 +1,15 @@
+{
+  "mod.dragon_overhaul.name": "Dragon Overhaul",
+  "species.dragon.fire": "Fire Dragon",
+  "species.dragon.ice": "Ice Dragon",
+  "species.dragon.lightning": "Lightning Dragon",
+  "command.dragon.stay": "Stay",
+  "command.dragon.follow": "Follow",
+  "command.dragon.guard": "Guard",
+  "command.dragon.wander": "Wander",
+  "status.dragon.tamed": "Tamed",
+  "status.dragon.wild": "Wild",
+  "status.dragon.protect_builds": "Build Protection: Active",
+  "entity.amphithere.name": "Amphithere",
+  "gui.dragon.status_title": "Dragon Status Panel"
+}
