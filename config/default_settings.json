@@ -1,0 +1,27 @@
+{
+  "version": "1.20.1",
+  "general": {
+    "language": "ru_ru",
+    "performance_profile": "balanced",
+    "give_starter_guidebook": true
+  },
+  "dragons": {
+    "protect_player_builds": true,
+    "destruction_mode": "limited",
+    "max_wild_dragons_per_region": 12,
+    "enable_amphithere_mounts": true
+  },
+  "magic": {
+    "enabled_schools": ["fire", "ice", "lightning", "dark", "holy"],
+    "forbidden_schools": ["illusion", "spatial_teleport"]
+  },
+  "survival": {
+    "keep_inventory_on_death": true,
+    "tree_felling_axe_durability": true,
+    "universal_coin_economy": true
+  },
+  "backup": {
+    "auto_backup_before_mod_changes": true,
+    "max_backup_count": 10
+  }
+}
