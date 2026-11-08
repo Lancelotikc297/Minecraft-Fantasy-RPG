@@ -1,0 +1,15 @@
+{
+  "mod.world_and_survival.name": "Мир и выживание",
+  "season.spring": "Весна",
+  "season.summer": "Лето",
+  "season.autumn": "Осень",
+  "season.winter": "Зима",
+  "tree.felling.success": "Срублено дерево целиком!",
+  "backpack.leather": "Кожаный рюкзак",
+  "backpack.iron": "Железный рюкзак",
+  "backpack.gold": "Золотой рюкзак",
+  "backpack.diamond": "Алмазный рюкзак",
+  "backpack.netherite": "Незеритовый рюкзак",
+  "boss.phase.enraged": "Фаза 2: Исступление",
+  "map.waypoint.added": "Путевая точка сохранена"
+}

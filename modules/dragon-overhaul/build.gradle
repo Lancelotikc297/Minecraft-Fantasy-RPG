@@ -23,6 +23,7 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
+tasks.withType(JavaCompile) { options.release = 17 }
 tasks.named('test') {
     useJUnitPlatform()
 }

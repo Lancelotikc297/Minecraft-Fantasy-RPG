@@ -33,8 +33,8 @@ public class ConfigCenterTest {
 
     @Test
     public void testUpdateGraphicsProfilesPhaseG() {
-        assertTrue(configCenter.updateSetting("graphics.profile", "low_laptop"));
-        assertEquals("low_laptop", configCenter.getSetting("graphics.profile"));
+        assertTrue(configCenter.updateSetting("graphics.profile", "laptop"));
+        assertEquals("laptop", configCenter.getSetting("graphics.profile"));
 
         assertTrue(configCenter.updateSetting("graphics.profile", "cinematic"));
         assertEquals("cinematic", configCenter.getSetting("graphics.profile"));
@@ -48,5 +48,9 @@ public class ConfigCenterTest {
         assertNotNull(menu);
         assertTrue(menu.contains("Драконы и защита построек"));
         assertTrue(menu.contains("protect_player_builds"));
+
+        String survivalMenu = configCenter.renderCategoryMenu(RPGConfigCenter.ConfigCategory.WORLD_AND_SURVIVAL);
+        assertTrue(survivalMenu.contains("Выживание, сезоны и рубка деревьев"));
+        assertTrue(survivalMenu.contains("tree_felling_enabled"));
     }
 }

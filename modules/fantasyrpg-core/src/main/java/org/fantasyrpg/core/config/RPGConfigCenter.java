@@ -4,8 +4,9 @@ import java.util.*;
 
 /**
  * Комплексный внутриигровой конфигурационный центр (Phase H).
- * Позволяет настраивать все подсистемы: прогрессию, магию, драконов, графические пресеты, сложность и события.
- * Выполняет живую валидацию правил безопасности (защита построек игрока, запрет запрещенных школ).
+ * Охватывает все аспекты игры: прогрессию, магию, драконов, боевую систему,
+ * графику/оптимизацию (Phase G), мир/подземелья, дереворубку, рюкзаки и сезоны.
+ * Гарантирует живую валидацию правил безопасности.
  */
 public class RPGConfigCenter {
 
@@ -16,7 +17,8 @@ public class RPGConfigCenter {
         MAGIC_SYSTEM("magic", "Магические школы"),
         DRAGONS_AND_BUILDINGS("dragons", "Драконы и защита построек"),
         COMBAT_DIFFICULTY("combat", "Боевая система и сложность"),
-        GRAPHICS_AND_PERFORMANCE("graphics", "Графика и производительность"),
+        GRAPHICS_AND_PERFORMANCE("graphics", "Графика и производительность (Phase G)"),
+        WORLD_AND_SURVIVAL("survival", "Выживание, сезоны и рубка деревьев"),
         EVENTS_AND_SPAWN("events", "События мира и спавн");
 
         private final String id;
@@ -58,19 +60,25 @@ public class RPGConfigCenter {
         settings.put("magic.school_lightning", true);
         settings.put("magic.school_dark", true);
         settings.put("magic.school_holy", true);
-        settings.put("magic.school_illusion", false); // ЗАПРЕЩЕНО
-        settings.put("magic.school_spatial", false);  // ЗАПРЕЩЕНО
+        settings.put("magic.school_illusion", false); // СТРОГО ЗАПРЕЩЕНО ТЗ
+        settings.put("magic.school_spatial", false);  // СТРОГО ЗАПРЕЩЕНО ТЗ
 
         // Драконы
-        settings.put("dragons.protect_player_builds", true); // СТРОГО ОБЯЗАТЕЛЬНО
+        settings.put("dragons.protect_player_builds", true); // СТРОГО ОБЯЗАТЕЛЬНО ТЗ
         settings.put("dragons.destruction_mode", "limited");
         settings.put("dragons.amphithere_mounts", true);
 
         // Графика и производительность (Phase G)
-        settings.put("graphics.profile", "balanced"); // low_laptop, balanced, cinematic
+        settings.put("graphics.profile", "balanced"); // laptop, balanced, cinematic
         settings.put("graphics.entity_culling", true);
         settings.put("graphics.dynamic_lights", true);
         settings.put("graphics.particle_density", 1.0);
+
+        // Выживание и мир
+        settings.put("survival.tree_felling_enabled", true);
+        settings.put("survival.seasons_cycle_days", 7);
+        settings.put("survival.backpack_upgrades_allowed", true);
+        settings.put("survival.map_teleport_server_allowed", true);
 
         // События и спавн
         settings.put("events.raid_frequency_days", 5);
@@ -106,7 +114,7 @@ public class RPGConfigCenter {
         // Валидация 3: Профили производительности (Phase G)
         if ("graphics.profile".equals(key)) {
             String prof = value.toString().toLowerCase();
-            if (!List.of("low_laptop", "balanced", "cinematic").contains(prof)) {
+            if (!List.of("laptop", "balanced", "cinematic").contains(prof)) {
                 return false;
             }
         }
@@ -116,7 +124,7 @@ public class RPGConfigCenter {
     }
 
     /**
-     * Отображает русскоязычный текстовый интерфейс меню настроек.
+     * Отображает русскоязычный текстовый интерфейс меню настроек по категории.
      */
     public String renderCategoryMenu(ConfigCategory category) {
         StringBuilder sb = new StringBuilder();
@@ -126,10 +134,10 @@ public class RPGConfigCenter {
         for (Map.Entry<String, Object> entry : settings.entrySet()) {
             if (entry.getKey().startsWith(prefix)) {
                 String subKey = entry.getKey().substring(prefix.length());
-                sb.append(String.format(" - %-25s = %s\n", subKey, entry.getValue()));
+                sb.append(String.format(" - %-28s = %s\n", subKey, entry.getValue()));
             }
         }
-        sb.append("Изменить настройку: /rpg config set <категория.параметр> <значение>");
+        sb.append("Команда изменения: /rpg config set <категория.параметр> <значение>");
         return sb.toString();
     }
 }

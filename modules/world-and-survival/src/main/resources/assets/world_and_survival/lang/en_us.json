@@ -1,0 +1,15 @@
+{
+  "mod.world_and_survival.name": "World and Survival",
+  "season.spring": "Spring",
+  "season.summer": "Summer",
+  "season.autumn": "Autumn",
+  "season.winter": "Winter",
+  "tree.felling.success": "Felled the whole tree!",
+  "backpack.leather": "Leather Backpack",
+  "backpack.iron": "Iron Backpack",
+  "backpack.gold": "Gold Backpack",
+  "backpack.diamond": "Diamond Backpack",
+  "backpack.netherite": "Netherite Backpack",
+  "boss.phase.enraged": "Phase 2: Enraged",
+  "map.waypoint.added": "Waypoint Saved"
+}
