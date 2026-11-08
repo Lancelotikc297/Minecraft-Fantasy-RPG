@@ -3,7 +3,7 @@ package org.fantasyrpg.core.data;
 import java.util.UUID;
 
 /**
- * Ролевые данные игрока: уровень, очки опыта, класс, характеристики и мана.
+ * Ролевые данные игрока: уровень, очки опыта, класс, характеристики, мана и распределяемые очки.
  */
 public class PlayerRPGData {
 
@@ -11,6 +11,7 @@ public class PlayerRPGData {
     private RPGClass characterClass = RPGClass.NONE;
     private int level = 1;
     private int currentXP = 0;
+    private int availableAttributePoints = 0;
 
     // Базовые атрибуты согласно русскоязычному глоссарию
     private int strength = 10;     // Сила
@@ -41,8 +42,24 @@ public class PlayerRPGData {
         return level;
     }
 
+    public void setLevel(int level) {
+        this.level = Math.max(1, level);
+    }
+
     public int getCurrentXP() {
         return currentXP;
+    }
+
+    public void setCurrentXP(int currentXP) {
+        this.currentXP = Math.max(0, currentXP);
+    }
+
+    public int getAvailableAttributePoints() {
+        return availableAttributePoints;
+    }
+
+    public void setAvailableAttributePoints(int points) {
+        this.availableAttributePoints = Math.max(0, points);
     }
 
     public int getRequiredXPForNextLevel() {
@@ -51,8 +68,6 @@ public class PlayerRPGData {
 
     /**
      * Добавляет опыт и производит повышение уровня.
-     * @param xp добавляемое количество опыта
-     * @return true если произошло повышение хотя бы на 1 уровень
      */
     public boolean addExperience(int xp) {
         if (xp <= 0) return false;
@@ -62,7 +77,7 @@ public class PlayerRPGData {
         while (this.currentXP >= getRequiredXPForNextLevel()) {
             this.currentXP -= getRequiredXPForNextLevel();
             this.level++;
-            // Базовый прирост характеристик при повышении уровня
+            this.availableAttributePoints += 3; // +3 очка характеристик за уровень
             this.strength += 1;
             this.agility += 1;
             this.intelligence += 1;
@@ -74,12 +89,33 @@ public class PlayerRPGData {
         return leveledUp;
     }
 
+    /**
+     * Распределяет свободные очки характеристик.
+     */
+    public boolean allocateAttribute(String attribute, int points) {
+        if (points <= 0 || points > availableAttributePoints) return false;
+        if (attribute == null) return false;
+
+        String attr = attribute.toLowerCase().trim();
+        switch (attr) {
+            case "strength", "сила" -> strength += points;
+            case "agility", "ловкость" -> agility += points;
+            case "intelligence", "интеллект" -> intelligence += points;
+            case "endurance", "выносливость" -> endurance += points;
+            default -> {
+                return false;
+            }
+        }
+
+        availableAttributePoints -= points;
+        return true;
+    }
+
     public int getMaxMana() {
         return 30 + (this.intelligence * 4);
     }
 
     public int getMaxHealthBonus() {
-        // Дополнительное здоровье от выносливости
         return Math.max(0, (this.endurance - 10) / 2);
     }
 

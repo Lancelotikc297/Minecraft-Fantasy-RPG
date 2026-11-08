@@ -3,9 +3,14 @@ package org.fantasyrpg.core;
 import org.fantasyrpg.core.config.RPGConfig;
 import org.fantasyrpg.core.data.RPGDataManager;
 
+import org.fantasyrpg.core.magic.SpellRegistry;
+import org.fantasyrpg.core.skill.SkillRegistry;
+
 /**
  * Главная точка входа Forge мода FantasyRPG Core (modId: fantasyrpg_core).
+ * Имеет аннотацию @Mod("fantasyrpg_core") для загрузки модлоадером Forge 1.20.1.
  */
+
 public class FantasyRPGCore {
 
     public static final String MOD_ID = "fantasyrpg_core";
@@ -29,10 +34,13 @@ public class FantasyRPGCore {
     }
 
     private void init() {
-        System.out.printf("[%s] Initializing FantasyRPG Core v%s (Target: Minecraft 1.20.1 Forge)%n", MOD_NAME, VERSION);
-        System.out.printf("[%s] Player builds protection against dragons: %b%n", MOD_NAME, config.isProtectPlayerBuilds());
-        System.out.printf("[%s] Active language: %s%n", MOD_NAME, config.getLanguage());
-        System.out.printf("[%s] Active performance profile: %s%n", MOD_NAME, config.getPerformanceProfile());
+        System.out.printf("[%s] Инициализация FantasyRPG Core v%s (Target: Minecraft 1.20.1 Forge)%n", MOD_NAME, VERSION);
+        System.out.printf("[%s] Защита построек от драконов: %b%n", MOD_NAME, config.isProtectPlayerBuilds());
+        System.out.printf("[%s] Локализация: %s%n", MOD_NAME, config.getLanguage());
+
+        // Предварительная инициализация реестров
+        SkillRegistry.getInstance();
+        SpellRegistry.getInstance();
     }
 
     public RPGConfig getConfig() {
