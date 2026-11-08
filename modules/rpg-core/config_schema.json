@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MinecraftFantasyRPGConfig",
+  "description": "Единая схема конфигурации Minecraft Fantasy RPG Sandbox",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "enum": ["1.20.1"]
+    },
+    "general": {
+      "type": "object",
+      "properties": {
+        "language": {
+          "type": "string",
+          "enum": ["ru_ru"]
+        },
+        "performance_profile": {
+          "type": "string",
+          "enum": ["low_end_laptop", "balanced", "cinematic_60fps"]
+        },
+        "give_starter_guidebook": {
+          "type": "boolean"
+        }
+      },
+      "required": ["language", "performance_profile", "give_starter_guidebook"]
+    },
+    "dragons": {
+      "type": "object",
+      "properties": {
+        "protect_player_builds": {
+          "type": "boolean",
+          "description": "Защита построек игрока от разрушения драконами по умолчанию (Строго true)"
+        },
+        "destruction_mode": {
+          "type": "string",
+          "enum": ["disabled", "limited", "attacks_only", "full"]
+        },
+        "max_wild_dragons_per_region": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 50
+        },
+        "enable_amphithere_mounts": {
+          "type": "boolean"
+        }
+      },
+      "required": ["protect_player_builds", "destruction_mode", "enable_amphithere_mounts"]
+    },
+    "magic": {
+      "type": "object",
+      "properties": {
+        "enabled_schools": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["fire", "ice", "lightning", "dark", "holy"]
+          }
+        },
+        "forbidden_schools": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["illusion", "spatial_teleport"]
+          }
+        }
+      },
+      "required": ["enabled_schools", "forbidden_schools"]
+    },
+    "survival": {
+      "type": "object",
+      "properties": {
+        "keep_inventory_on_death": {
+          "type": "boolean"
+        },
+        "tree_felling_axe_durability": {
+          "type": "boolean"
+        },
+        "universal_coin_economy": {
+          "type": "boolean"
+        }
+      },
+      "required": ["keep_inventory_on_death", "tree_felling_axe_durability", "universal_coin_economy"]
+    },
+    "backup": {
+      "type": "object",
+      "properties": {
+        "auto_backup_before_mod_changes": {
+          "type": "boolean"
+        },
+        "max_backup_count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        }
+      },
+      "required": ["auto_backup_before_mod_changes", "max_backup_count"]
+    }
+  },
+  "required": ["version", "general", "dragons", "magic", "survival", "backup"]
+}
